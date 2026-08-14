@@ -1709,12 +1709,7 @@ async function load(){
   try{
 
     const r =
-      await fetch(
-        `reports/latest.json?ts=${Date.now()}`,
-        {
-          cache:"no-store"
-        }
-      );
+      await fetch(`https://garyuton.github.io/qld-meter-data/latest.json?ts=${Date.now()}`,{cache:"no-store"});
 
 
     if(!r.ok){
