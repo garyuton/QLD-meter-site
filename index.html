@@ -2,10 +2,1034 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>QLD突撃メーター</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>臥龍のQLD突撃メーター</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>QLD突撃メーター</h1>
-  <p>GitHub Pages 移行テストぶひ🐷</p>
+<main class="app">
+
+  <section class="visual">
+    <img
+      class="background"
+      src="assets/background.png"
+      alt="夕暮れの養豚場"
+    >
+
+    <div class="vignette"></div>
+
+    <nav class="desktop-menu">
+      <button
+        id="barnBtn"
+        class="round-btn"
+      >
+        🐷 豚舎をのぞく
+      </button>
+
+      <button
+        id="quoteBtn"
+        class="round-btn"
+      >
+        📜 今日の格言
+      </button>
+
+      <button
+        id="musicBtn"
+        class="round-btn"
+      >
+        🎵 BGM
+      </button>
+    </nav>
+  </section>
+
+
+  <!-- =====================================================
+       豚舎
+       ===================================================== -->
+
+  <section
+    id="barnOverlay"
+    class="overlay"
+    aria-hidden="true"
+  >
+
+    <div class="barn-shell">
+
+      <button
+        class="x close-overlay"
+        data-target="barnOverlay"
+      >
+        ×
+      </button>
+
+      <div
+        id="barnContent"
+        class="barn-content show"
+        aria-hidden="false"
+      >
+
+        <header class="barn-content-head">
+
+          <div>
+            <small>今日の三匹</small>
+            <h2>市場の様子ぶひ</h2>
+          </div>
+
+        </header>
+
+
+        <!-- =========================
+             市場3匹
+             ========================= -->
+
+        <div class="three-market">
+
+          <article
+            class="market-pig"
+            data-market="usdjpy"
+          >
+
+            <div class="pig-face">
+              🐽
+            </div>
+
+            <h3>
+              ドル円㌧
+            </h3>
+
+            <div
+              id="usdjpyValue"
+              class="market-value"
+            >
+              --
+            </div>
+
+            <dl>
+
+              <div>
+                <dt>前日比</dt>
+                <dd id="usdjpyDay">--</dd>
+              </div>
+
+              <div>
+                <dt>年初来</dt>
+                <dd id="usdjpyYtd">--</dd>
+              </div>
+
+            </dl>
+
+            <p
+              id="usdjpyMood"
+              class="mood"
+            >
+              草を食べて待機中ぶひ。
+            </p>
+
+          </article>
+
+
+          <article
+            class="market-pig"
+            data-market="qld"
+          >
+
+            <div class="pig-face">
+              🐽
+            </div>
+
+            <h3>
+              QLD㌧
+            </h3>
+
+            <div
+              id="qldValue"
+              class="market-value"
+            >
+              --
+            </div>
+
+            <dl>
+
+              <div>
+                <dt>前日比</dt>
+                <dd id="qldDay">--</dd>
+              </div>
+
+              <div>
+                <dt>年初来</dt>
+                <dd id="qldYtd">--</dd>
+              </div>
+
+            </dl>
+
+            <p
+              id="qldMood"
+              class="mood"
+            >
+              鼻息を整えてるぶひ。
+            </p>
+
+          </article>
+
+
+          <article
+            class="market-pig"
+            data-market="ndx"
+          >
+
+            <div class="pig-face">
+              🐽
+            </div>
+
+            <h3>
+              NASDAQ100㌧
+            </h3>
+
+            <div
+              id="ndxValue"
+              class="market-value"
+            >
+              --
+            </div>
+
+            <dl>
+
+              <div>
+                <dt>前日比</dt>
+                <dd id="ndxDay">--</dd>
+              </div>
+
+              <div>
+                <dt>年初来</dt>
+                <dd id="ndxYtd">--</dd>
+              </div>
+
+            </dl>
+
+            <p
+              id="ndxMood"
+              class="mood"
+            >
+              今日も畑を見回るぶひ。
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <!-- =========================
+             QLD畑
+             ========================= -->
+
+        <section class="qld-field">
+
+          <div class="section-head">
+
+            <div>
+              <small>
+                今年のQLD畑
+              </small>
+
+              <h3>
+                どこまで育ったぶひ？
+              </h3>
+            </div>
+
+            <strong id="qldYtdBig">
+              --
+            </strong>
+
+          </div>
+
+
+          <div class="field-track">
+
+            <div class="field-stage">
+              芽
+            </div>
+
+            <div class="field-stage">
+              新緑
+            </div>
+
+            <div class="field-stage">
+              実り
+            </div>
+
+            <div class="field-stage">
+              豊作
+            </div>
+
+            <div
+              id="fieldFill"
+              class="field-fill"
+            ></div>
+
+            <div
+              id="miniGaryu"
+              class="mini-garyu"
+              title="5回押すなぶひ"
+            >
+
+              <img
+                id="miniGaryuImg"
+                src="assets/garyu.png"
+                alt="臥龍"
+              >
+
+              <span id="miniGaryuPct">
+                --%
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <p
+            id="fieldComment"
+            class="field-comment"
+          >
+            今年の育ち具合を確認中ぶひ。
+          </p>
+
+        </section>
+
+
+        <!-- =========================
+             今日の臥龍
+             ========================= -->
+
+        <section class="garyu-decision">
+
+          <div class="decision-left">
+
+            <small>
+              今日の臥龍㌧
+            </small>
+
+            <div
+              id="deployRate"
+              class="deploy-rate"
+            >
+              --%
+            </div>
+
+            <div
+              id="deployText"
+              class="deploy-text"
+            >
+              茶でも飲んで待つぶひ。
+            </div>
+
+          </div>
+
+
+          <div class="decision-right">
+
+            <div class="route-label">
+              <span>MMF</span>
+              <span>QLD</span>
+            </div>
+
+
+            <div class="route">
+
+              <div class="route-line"></div>
+
+              <div
+                id="routeGaryu"
+                class="route-garyu"
+              >
+
+                <img
+                  id="routeGaryuImg"
+                  src="assets/garyu.png"
+                  alt="QLDへ進む臥龍"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="route-meta">
+
+              <span id="labelBadge">
+                ---
+              </span>
+
+              <span>
+                スコア
+                <b id="score">--</b>
+                /100
+              </span>
+
+              <span id="asOf">
+                ----
+              </span>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QLD突撃プラン
+             ================================================= -->
+
+        <section class="attack-plan">
+
+          <div class="attack-plan-head">
+
+            <div>
+
+              <small>
+                次の一手まで見えるぶひ
+              </small>
+
+              <h3>
+                🔥 QLD突撃プラン
+              </h3>
+
+            </div>
+
+
+            <div class="plan-total">
+
+              <span>
+                突撃資金
+              </span>
+
+              <b id="planCapital">
+                700万円
+              </b>
+
+            </div>
+
+          </div>
+
+
+          <!-- 現行メーターと調整レイヤー -->
+
+          <div class="plan-summary">
+
+            <div>
+
+              <span>
+                通常メーター
+              </span>
+
+              <b id="normalDeployView">
+                --%
+              </b>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                調整レイヤー
+              </span>
+
+              <b id="adjustDeployView">
+                --%
+              </b>
+
+            </div>
+
+
+            <div class="plan-final">
+
+              <span>
+                作戦上の投入目安
+              </span>
+
+              <b id="finalDeployView">
+                --%
+              </b>
+
+            </div>
+
+          </div>
+
+
+          <!-- 金額 -->
+
+          <div class="plan-money">
+
+            <div>
+
+              <span>
+                目標投入額
+              </span>
+
+              <b id="targetAmount">
+                --万円
+              </b>
+
+            </div>
+
+
+            <div>
+
+              <span>
+                投入済み
+              </span>
+
+              <b id="investedAmount">
+                未設定
+              </b>
+
+            </div>
+
+
+            <div class="plan-additional">
+
+              <span>
+                今回の追加弾
+              </span>
+
+              <b id="additionalAmount">
+                未設定
+              </b>
+
+            </div>
+
+          </div>
+
+
+          <!-- NASDAQ100下落ゲージ -->
+
+          <div class="drawdown-board">
+
+            <div class="drawdown-now">
+
+              <span>
+                NASDAQ100 高値から
+              </span>
+
+              <b id="drawdownNow">
+                --%
+              </b>
+
+            </div>
+
+
+            <div
+              class="drawdown-track"
+              aria-label="NASDAQ100下落率ゲージ"
+            >
+
+              <div class="drawdown-line"></div>
+
+
+              <div
+                class="drawdown-marker marker-0"
+              >
+
+                <span>
+                  0%
+                </span>
+
+                <b>
+                  平常
+                </b>
+
+              </div>
+
+
+              <div
+                id="marker10"
+                class="drawdown-marker marker-10"
+              >
+
+                <span>
+                  -10%
+                </span>
+
+                <b>
+                  40%
+                </b>
+
+              </div>
+
+
+              <div
+                id="marker15"
+                class="drawdown-marker marker-15"
+              >
+
+                <span>
+                  -15%
+                </span>
+
+                <b>
+                  60%
+                </b>
+
+              </div>
+
+
+              <div
+                id="marker20"
+                class="drawdown-marker marker-20"
+              >
+
+                <span>
+                  -20%
+                </span>
+
+                <b>
+                  70%
+                </b>
+
+              </div>
+
+
+              <div
+                id="drawdownPig"
+                class="drawdown-pig"
+                title="NASDAQ100の現在地"
+              >
+                🐷
+              </div>
+
+            </div>
+
+
+            <div class="next-line">
+
+              <span>
+                次の突撃ライン
+              </span>
+
+              <b id="nextTrigger">
+                --
+              </b>
+
+              <small id="nextDistance">
+                --
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- 40 / 60 / 70 -->
+
+          <div class="plan-steps">
+
+            <div
+              id="step40"
+              class="plan-step"
+            >
+
+              <span>
+                ▼ -10%
+              </span>
+
+              <b>
+                40%
+              </b>
+
+              <small id="amount40">
+                --万円
+              </small>
+
+            </div>
+
+
+            <div
+              id="step60"
+              class="plan-step"
+            >
+
+              <span>
+                ▼ -15%
+              </span>
+
+              <b>
+                60%
+              </b>
+
+              <small id="amount60">
+                --万円
+              </small>
+
+            </div>
+
+
+            <div
+              id="step70"
+              class="plan-step"
+            >
+
+              <span>
+                ▼ -20% + VIX30
+              </span>
+
+              <b>
+                70%
+              </b>
+
+              <small id="amount70">
+                --万円
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- 予備弾 -->
+
+          <div class="reserve-ammo">
+
+            <div>
+
+              <span>
+                🛡️ 研究ルールの予備弾
+              </span>
+
+              <b id="reserveAmount">
+                --万円
+              </b>
+
+            </div>
+
+            <p>
+              調整レイヤーでは30%をMMFに温存。
+              現行メーターが70%を超える場合は現行判定を優先するぶひ。
+            </p>
+
+          </div>
+
+
+          <!-- 金額設定 -->
+
+          <details class="plan-settings">
+
+            <summary>
+              ⚙️ 金額設定
+            </summary>
+
+
+            <div class="plan-settings-grid">
+
+              <label>
+
+                <span>
+                  突撃資金
+                </span>
+
+                <span class="input-wrap">
+
+                  <input
+                    id="capitalInput"
+                    type="number"
+                    min="0"
+                    step="10"
+                    value="700"
+                  >
+
+                  <em>
+                    万円
+                  </em>
+
+                </span>
+
+              </label>
+
+
+              <label>
+
+                <span>
+                  投入済み（手入力）
+                </span>
+
+                <span class="input-wrap">
+
+                  <input
+                    id="investedInput"
+                    type="number"
+                    min="0"
+                    step="1"
+                    placeholder="例 140"
+                  >
+
+                  <em>
+                    万円
+                  </em>
+
+                </span>
+
+              </label>
+
+
+              <button
+                id="savePlanBtn"
+                class="paper-btn"
+                type="button"
+              >
+                💾 保存
+              </button>
+
+            </div>
+
+
+            <p
+              id="planSaveMessage"
+              class="plan-save-message"
+            >
+              入力値はこの端末のブラウザだけに保存するぶひ。
+            </p>
+
+          </details>
+
+
+          <p class="plan-note">
+            ※ 調整レイヤーは研究結果のシャドー表示。
+            本番判定や自動売買は変更していないぶひ。
+          </p>
+
+        </section>
+
+
+        <!-- =========================
+             詳細
+             ========================= -->
+
+        <section class="detail-grid">
+
+          <div>
+            <span>200DMA比</span>
+            <b id="dma">--</b>
+          </div>
+
+          <div>
+            <span>高値から下落</span>
+            <b id="drawdown">--</b>
+          </div>
+
+          <div>
+            <span>VIX</span>
+            <b id="vix">--</b>
+          </div>
+
+          <div>
+            <span>DFF</span>
+            <b id="dff">--</b>
+          </div>
+
+        </section>
+
+
+        <!-- =========================
+             シグナル
+             ========================= -->
+
+        <section class="signals">
+
+          <div>
+            <span>暴落シグナル</span>
+            <b id="crash">--</b>
+          </div>
+
+          <div>
+            <span>反転シグナル</span>
+            <b id="reversal">--</b>
+          </div>
+
+          <div>
+            <span>暴落状態</span>
+            <b id="crashState">--</b>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       格言
+       ===================================================== -->
+
+  <section
+    id="quoteOverlay"
+    class="overlay"
+    aria-hidden="true"
+  >
+
+    <div class="paper-modal quote-modal">
+
+      <button
+        class="x close-overlay"
+        data-target="quoteOverlay"
+      >
+        ×
+      </button>
+
+      <small>
+        本日の養豚場訓
+      </small>
+
+      <h2>
+        📜 今日の格言
+      </h2>
+
+      <blockquote id="quoteText"></blockquote>
+
+      <div
+        id="quoteSource"
+        class="quote-source"
+      >
+        臥龍㌧
+      </div>
+
+      <button
+        id="nextQuoteBtn"
+        class="paper-btn"
+      >
+        🐽 もう一言
+      </button>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       BGM
+       ===================================================== -->
+
+  <section
+    id="musicOverlay"
+    class="overlay"
+    aria-hidden="true"
+  >
+
+    <div class="paper-modal music-modal">
+
+      <button
+        class="x close-overlay"
+        data-target="musicOverlay"
+      >
+        ×
+      </button>
+
+      <small>
+        養豚場RADIO
+      </small>
+
+      <h2>
+        🎵 BGM
+      </h2>
+
+
+      <label for="songSelect">
+        楽曲
+      </label>
+
+      <select id="songSelect">
+
+        <option value="">
+          楽曲を選ぶぶひ
+        </option>
+
+      </select>
+
+
+      <div class="music-controls">
+
+        <button
+          id="playBtn"
+          class="paper-btn"
+        >
+          ▶ 再生
+        </button>
+
+        <button
+          id="pauseBtn"
+          class="paper-btn ghost"
+        >
+          ⏸ 一時停止
+        </button>
+
+        <button
+          id="stopBtn"
+          class="paper-btn ghost"
+        >
+          ⏹ 停止
+        </button>
+
+      </div>
+
+
+      <label for="volume">
+        音量
+      </label>
+
+      <input
+        id="volume"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.65"
+      >
+
+
+      <div
+        id="nowPlaying"
+        class="now-playing"
+      >
+        曲を選ぶぶひ。
+      </div>
+
+
+      <audio
+        id="audio"
+        preload="metadata"
+      ></audio>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       モバイル
+       ===================================================== -->
+
+  <nav class="mobile-menu">
+
+    <button id="mobileBarnBtn">
+      🐷
+      <span>豚舎</span>
+    </button>
+
+    <button id="mobileQuoteBtn">
+      📜
+      <span>格言</span>
+    </button>
+
+    <button id="mobileMusicBtn">
+      🎵
+      <span>BGM</span>
+    </button>
+
+  </nav>
+
+</main>
+
+<script src="script.js"></script>
+
 </body>
 </html>
