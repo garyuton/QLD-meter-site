@@ -218,6 +218,7 @@ footer p{margin:4px 0}
 .nc .more{margin:0;font-size:.84rem;font-weight:700;color:var(--ink-soft);line-height:1.6}
 .nc .mates{margin:0;font-size:.78rem;font-weight:700;color:var(--ink-soft);border-top:2px dashed var(--line);padding-top:6px}
 .nc .mates b{color:var(--nc)}
+.nc.p.gone{--nc:#7B828B}
 .nc.c{--nc:var(--l1)} .nc.p{--nc:var(--l2)} .nc.m{--nc:var(--l3)} .nc.t{--nc:var(--l4)} .nc.h{--nc:var(--pl)}
 .shelf-foot{margin:14px 0 0;font-size:.88rem;font-weight:700;color:var(--ink-soft);text-align:center}
 @media (max-width:760px){
@@ -376,6 +377,24 @@ footer p{margin:4px 0}
       <p class="more">会社がモデルも製品も自前で持つタイプ。入口はCapCut、Jimeng AI、DoubaoのPro版など。最新は2026年7月のSeedance 2.5です。</p>
       <p class="mates">対比:<b>H3 Max Turbo(他社モデルをfalが加工して出す)</b></p>
     </article>
+    <article class="nc m" data-k="m">
+      <div class="hd"><h3>Veo / Kling / HappyHorse</h3><span class="badge">3 モデル</span></div>
+      <p class="what">動画生成モデルの、ほかの有力どころ</p>
+      <p class="more">Veo=Google、Kling=Kuaishou(快手)、HappyHorse=Alibaba。順位の入れ替わりが速いので、優劣は決めつけないのがコツです。</p>
+      <p class="mates">仲間:<b>Seedance / H3 Max Turbo</b></p>
+    </article>
+    <article class="nc m" data-k="m">
+      <div class="hd"><h3>FLUX / Stable Diffusion</h3><span class="badge">3 モデル</span></div>
+      <p class="what">画像生成の、オープン系の代表モデル</p>
+      <p class="more">FLUX=Black Forest Labs、Stable Diffusion=Stability AI。falのような置き場や、自分のPCでも動かせます。</p>
+      <p class="mates">仲間:<b>fal / Hugging Face</b></p>
+    </article>
+    <article class="nc m" data-k="m">
+      <div class="hd"><h3>H3 Max Turbo</h3><span class="badge">3 モデル</span></div>
+      <p class="what">文章や画像から動画を作る、動画生成モデル</p>
+      <p class="more">元はMiniMaxのオープンなH3で、falが手を入れた“速い版”。出どころの説明は情報源で差があります。</p>
+      <p class="mates">流れ:<b>MiniMax(H3)→ fal(Max / Turbo)→ Krea・Picsart</b></p>
+    </article>
     <article class="nc p" data-k="p">
       <div class="hd"><h3>Antigravity</h3><span class="badge">2 製品</span></div>
       <p class="what">Googleの、AIエージェント向けの開発環境(IDE)</p>
@@ -393,6 +412,24 @@ footer p{margin:4px 0}
       <p class="what">「Copilot」は別物が2つあります</p>
       <p class="more">GitHub Copilot=コード補助のAI。Microsoft Copilot=WindowsやOfficeに入った対話アシスタント。どちらもMicrosoft系ですが、入口が違います。</p>
       <p class="mates">注意:<b>Claude・Gemini・Grok と同じ“名前かぶり”</b></p>
+    </article>
+    <article class="nc p" data-k="p">
+      <div class="hd"><h3>Gemini CLI / Jules</h3><span class="badge">2 製品</span></div>
+      <p class="what">Googleの、コーディング向けエージェント</p>
+      <p class="more">Gemini CLIはターミナルで使うタイプ、Julesはコードの作業を任せるタイプ。Antigravityと同じGoogleの仲間です。</p>
+      <p class="mates">仲間:<b>Claude Code / Codex / Antigravity</b></p>
+    </article>
+    <article class="nc p" data-k="p">
+      <div class="hd"><h3>Windsurf / Devin</h3><span class="badge">2 製品</span></div>
+      <p class="what">Cognitionの、AIエディタと“AIソフトウェア技術者”</p>
+      <p class="more">Windsurfはエディタ型、Devinはエディタの外で最後までやり切らせるタイプ。</p>
+      <p class="mates">仲間:<b>Cursor / Claude Code / Codex</b></p>
+    </article>
+    <article class="nc p" data-k="p">
+      <div class="hd"><h3>Lovable / Bolt / Replit</h3><span class="badge">2 製品</span></div>
+      <p class="what">文章で頼むと、アプリを作ってくれる“AIアプリビルダー”</p>
+      <p class="more">コードを書かない人でも、動くアプリを作り始められる入口です。</p>
+      <p class="mates">仲間:<b>Cursor(こちらは開発者寄り)</b></p>
     </article>
     <article class="nc p" data-k="p">
       <div class="hd"><h3>Perplexity</h3><span class="badge">2 製品</span></div>
@@ -413,16 +450,28 @@ footer p{margin:4px 0}
       <p class="mates">対比:<b>Krea / Picsart(いろんなモデルを選べる入口)</b></p>
     </article>
     <article class="nc p" data-k="p">
+      <div class="hd"><h3>Runway / Luma</h3><span class="badge">2 製品(会社兼)</span></div>
+      <p class="what">映像づくり向けの、動画生成サービス</p>
+      <p class="more">会社が自前のモデルを自前のサービスで出す“全部入り”タイプ。Midjourney、Seedanceと同じ型です。</p>
+      <p class="mates">仲間:<b>Midjourney / Seedance</b></p>
+    </article>
+    <article class="nc p" data-k="p">
+      <div class="hd"><h3>ElevenLabs / Suno</h3><span class="badge">2 製品</span></div>
+      <p class="what">音声や音楽を作る、生成サービス</p>
+      <p class="more">ElevenLabsは声の合成や読み上げ、Sunoは曲づくりが得意。画像や動画と同じ“作る系”の入口です。</p>
+      <p class="mates">仲間:<b>Midjourney / Runway</b></p>
+    </article>
+    <article class="nc p" data-k="p">
       <div class="hd"><h3>Krea / Picsart</h3><span class="badge">2 製品</span></div>
       <p class="what">動画・画像のモデルを選んで作れる、制作アプリ</p>
       <p class="more">H3 Max Turboのようなモデルを、アプリの中から選んで使える入口です。</p>
       <p class="mates">仲間:<b>ChatGPT / Gemini アプリ(入口という意味で)</b></p>
     </article>
-    <article class="nc m" data-k="m">
-      <div class="hd"><h3>H3 Max Turbo</h3><span class="badge">3 モデル</span></div>
-      <p class="what">文章や画像から動画を作る、動画生成モデル</p>
-      <p class="more">元はMiniMaxのオープンなH3で、falが手を入れた“速い版”。出どころの説明は情報源で差があります。</p>
-      <p class="mates">流れ:<b>MiniMax(H3)→ fal(Max / Turbo)→ Krea・Picsart</b></p>
+    <article class="nc p gone" data-k="p">
+      <div class="hd"><h3>Sora</h3><span class="badge">2 製品(終了)</span></div>
+      <p class="what">OpenAIの動画生成アプリ。もう使えません</p>
+      <p class="more">2026年3月に終了を発表し、アプリは4月に停止、APIも終了とされています。名前が消えることもある、という例です。</p>
+      <p class="mates">学び:<b>会社が作った製品でも、続くとは限らない</b></p>
     </article>
     <article class="nc h" data-k="h">
       <div class="hd"><h3>fal</h3><span class="badge">置き場(クラウド)</span></div>
